@@ -31,7 +31,9 @@ std2 = student("janne" ,"kumar" ,27)
 print(std1.age)
 print(std2.email)
 
-''' >> self refers to the instance itself. It must be the first parameter of every instance method (Python passes it automatically).
+''' >> self refers to the instance itself. It must be the first parameter of every instance method (Python passes it automatically).self represents the current object/instance. Interview point
+
+        self is not a Python keyword. It is a conventional parameter name
     >> Without __init__, you'd have to set attributes manually on every object one by one — repetitive and error-prone.'''
 
 
@@ -59,12 +61,12 @@ print(acc.balance)
 
 class employee:
     def __init__(self , first , last , pay):
-        self.first = first
-        self.last = last
-        self.pay = pay
-    
-    def fullname(self):
-        return f" {self.first} {self.last}"
+        self.first = first                                  # here , 
+        self.last = last                                    # employee = class,
+        self.pay = pay                                      # emp = object of the class
+                                                            # first , last , pay = attributes(data)                                                        
+    def fullname(self):                                     #fullnmae , apply_raise = methods(behaviour)
+        return f" {self.first} {self.last}"                   # __init__ = constructor method /initializes the object
     
     def apply_raise(self , percent):
         self.pay = int(self.pay*(1 + percent))
@@ -72,6 +74,8 @@ class employee:
 emp= employee('John', 'Doe', 50000)
 emp.apply_raise(50)
 print(emp.pay)
+
+
 
 # 5..class variable vs instance variables
 # instance variables: unique per object (e.g., name, pay).

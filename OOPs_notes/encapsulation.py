@@ -91,4 +91,42 @@ class BankAccount:
 
 account = BankAccount()
 account.withdraw(5000)
-#Name mangling isn't only for variables.
+
+"""
+Name mangling isn't only for variables.
+
+Outside world
+      |
+      ↓
+   withdraw()
+      |
+      ↓
+ __verify_account()
+      |
+      ↓
+   Internal logic
+
+
+This is a practical example of encapsulation
+   """
+
+
+##########  @property Is Very Important
+#In real Python applications, you often don't need to use __private variables everywhere.
+
+#A very common pattern is:
+ 
+class Employee:
+    def __init__(self, salary):
+        self._salary = salary
+
+    @property
+    def salary(self):
+        return self._salary
+
+    @salary.setter
+    def salary(self, value):
+        if value < 0:
+            raise ValueError("Salary cannot be negative")
+
+        self._salary = value
