@@ -1,4 +1,4 @@
-# encapsulation ->>>>> keeping of data and the operations taht work on the data together, while controlling how the data is accessed or modified
+# encapsulation ->>>>> keeping of data and the operations that work on the data together, while controlling how the data is accessed or modified
 # it uses conventions/name mangling
 
 # 1 - Public------A normal variable is public.
@@ -23,7 +23,7 @@ print(dev._salary)
 #  This is intended for internal use or use by subclasses
 
 
-# 3. private / name mangled-- uses doble underscore to represent private variable
+# 3. private / name mangled-- uses double underscore to represent private variable
 
 self.__age = 30           # __age is name-mangled, making it harder to access from outside the class
                            # "This is intended for internal use or use by subclasses
@@ -44,7 +44,8 @@ __name
  
 
 # what is name mangling ?
-# -->. Name mangling is a mechanism in Python that alters the name of a variable or method to make it harder to access from outside the class. When you define a variable with a double underscore prefix (e.g., __age), Python internally changes its name to include the class name, making it less likely to be accidentally accessed or modified from outside the class. This is done to provide a level of encapsulation and prevent naming conflicts in subclasses.
+# -->. Name mangling is a mechanism in Python that alters the name of a variable or method to make it harder to access from outside the class. When you define a variable with a double underscore prefix (e.g., __age),
+#      Python internally changes its name to include the class name, making it less likely to be accidentally accessed or modified from outside the class. This is done to provide a level of encapsulation and prevent naming conflicts in subclasses.
 
 class Employee:
     def __init__(self, salary):
@@ -66,7 +67,7 @@ _Employee__salary  """
 
 # Why Does Python Do Name Mangling?  usesful in inheritance
 
-# One major reason is avoiding accidental conflicts in subclasses.
+# One major reason is " ....avoiding accidental conflicts in subclasses......""
 
 class Parent:
     def __init__(self):
@@ -130,3 +131,8 @@ class Employee:
             raise ValueError("Salary cannot be negative")
 
         self._salary = value
+
+emp = Employee(50000)
+print(emp.salary)  # Accessing the salary using the property
+emp.salary = 100000  # Setting the salary using the setter
+print(emp.salary)
